@@ -1,103 +1,140 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <main>
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60rem_30rem_at_50%_-10%,rgba(83,127,202,0.15),transparent)] dark:bg-[radial-gradient(60rem_30rem_at_50%_-10%,rgba(126,160,216,0.12),transparent)]"
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <div className="container-max grid gap-10 md:grid-cols-[1.1fr,1.6fr] items-center py-16 md:py-24">
+          {/* Lateral “card” (logo + contacto + mini about) */}
+          <motion.aside
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="card p-6 md:p-8"
+          >
+            <div className="flex items-center gap-3">
+              <div className="h-12 w-12 rounded-full bg-brand-500/10 ring-2 ring-brand-500/40 grid place-items-center">
+                <span className="text-brand-600 font-semibold">π</span>
+              </div>
+              <h2 className="text-xl font-semibold tracking-wide">PIVOT @ VT</h2>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="mt-6 text-sm">
+              <a className="link-underline" href="mailto:contact@pivot.edu">
+                contact@pivot.edu
+              </a>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="text-sm font-semibold tracking-widest text-gray-500 dark:text-gray-400">
+                ABOUT US
+              </h3>
+              <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed">
+                We are PIVOT (Physics Infused Vision for Onward Thinking), a student-led org at Virginia Tech. Our members
+                come from 9+ majors and collaborate on innovative, physics-driven solutions to real-world challenges.
+              </p>
+
+              <Link
+                href="/about"
+                className="mt-5 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 transition"
+              >
+                Learn more
+              </Link>
+            </div>
+          </motion.aside>
+
+          {/* Texto principal */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.05 }}
+            className="card p-8 md:p-12"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+              THIS IS PIVOT!
+            </h1>
+            <p className="mt-3 tracking-[0.25em] text-xs md:text-sm uppercase text-gray-500">
+              Physics Infused Vision for Onward Thinking
+            </p>
+
+            <div className="mt-8 text-gray-600 dark:text-gray-300 leading-relaxed space-y-4">
+              <p>
+                Already composed of members from over 9 majors, we are excited to start forging our path and sharing
+                physics-driven solutions with everyone! We have a couple projects under way—stay tuned for more in-depth
+                postings of our process.
+              </p>
+              <p>
+                If you or anyone you know is interested in learning more or joining our movement, please reach out—we’d
+                love to have you!
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/projects"
+                className="rounded-xl border border-black/10 dark:border-white/10 px-4 py-2 hover:bg-black/5 dark:hover:bg-white/5 transition"
+              >
+                Explore Projects
+              </Link>
+              <Link
+                href="/research"
+                className="rounded-xl border border-black/10 dark:border-white/10 px-4 py-2 hover:bg-black/5 dark:hover:bg-white/5 transition"
+              >
+                Our Research
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 transition"
+              >
+                Join / Contact
+              </Link>
+            </div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Sección: Highlights (proyectos / research rápidos) */}
+      <section className="container-max py-12 md:py-16">
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              title: "Energy Systems",
+              desc: "Optimizing campus microgrids with physics-informed models.",
+            },
+            {
+              title: "Materials & Sensors",
+              desc: "Low-cost sensing for environmental monitoring.",
+            },
+            {
+              title: "Robotics & Control",
+              desc: "Autonomous platforms for field data collection.",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.05 * i }}
+              className="card p-6"
+            >
+              <h3 className="font-semibold">{item.title}</h3>
+              <p className="mt-2 text-gray-600 dark:text-gray-300">{item.desc}</p>
+              <Link href="/projects" className="mt-4 inline-block link-underline">
+                See projects →
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
