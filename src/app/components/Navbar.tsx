@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import ThemeToggle from "./ThemeToggle";
 import clsx from "clsx";
 
@@ -16,15 +17,29 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 dark:border-white/10 backdrop-glass">
       <nav className="container-max flex items-center justify-between py-3">
         <div className="flex items-center gap-3">
-          {/* Logo (usa tu /public/next.svg como placeholder o tu logo) */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/next.svg" alt="PIVOT" width={28} height={28} className="opacity-80 dark:invert-0" />
-            <span className="font-semibold tracking-wider">PIVOT @ VT</span>
+            <div className="relative w-7 h-7">
+              <Image 
+                src={mounted && resolvedTheme === "dark" ? "/pivot-icon-white.png" : "/pivot-icon-black.png"}
+                alt="PIVOT" 
+                width={28} 
+                height={28} 
+                className="opacity-80" 
+              />
+            </div>
+            <span className="font-semibold tracking-wider">PIVOT</span>
           </Link>
         </div>
 
