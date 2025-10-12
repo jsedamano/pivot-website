@@ -36,7 +36,7 @@ export default function AboutPage() {
   return (
     <main>
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-8 pb-4 md:pt-12 md:pb-8">
+      <section className="relative overflow-hidden pt-8 pb-0 md:pt-12 md:pb-4">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60rem_30rem_at_50%_-10%,rgba(83,127,202,0.15),transparent)] dark:bg-[radial-gradient(60rem_30rem_at_50%_-10%,rgba(126,160,216,0.12),transparent)]"
