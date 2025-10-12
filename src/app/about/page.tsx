@@ -272,34 +272,14 @@ export default function AboutPage() {
                 desc: "Creating solutions that didn't exist before" 
               },
               { 
-                emoji: "🌱", 
-                title: "Sustainability", 
-                desc: "Building a better future for everyone" 
-              },
-              { 
                 emoji: "🤖", 
                 title: "Technology", 
                 desc: "Pushing the boundaries of what's possible" 
               },
               { 
-                emoji: "📊", 
-                title: "Data", 
-                desc: "Turning information into insights" 
-              },
-              { 
-                emoji: "🔬", 
-                title: "Experimentation", 
-                desc: "Testing ideas and learning from results" 
-              },
-              { 
                 emoji: "🎯", 
                 title: "Problem Solving", 
                 desc: "Finding elegant solutions to complex challenges" 
-              },
-              { 
-                emoji: "🌟", 
-                title: "Discovery", 
-                desc: "Uncovering new knowledge and possibilities" 
               }
             ].map((item, i) => (
               <motion.div
