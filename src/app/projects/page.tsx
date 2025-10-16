@@ -15,25 +15,18 @@ export default function ProjectsPage() {
 
   const projects = [
     {
-      id: "quantum-energy-systems",
-      name: "Quantum Energy Systems",
-      image: "/projects/bluey.png",
-      description: "Exploring quantum mechanical principles to develop next-generation energy storage and conversion systems. This project focuses on leveraging quantum coherence effects to achieve unprecedented energy efficiency in renewable energy applications.",
-      slug: "quantum-energy-systemsx"
+      id: "linear-generator",
+      name: "Linear Generator",
+      image: "/projects/linear-generator/linear-generator-1.png",
+      description: "Wearable power you make. PIVOT’s 3D linear generator harvests everyday motion via Faraday’s law—charge on the go, power safety gear, cut costs, and lighten the grid load.",
+      slug: "linear-generator"
     },
     {
       id: "plasma-fusion-dynamics",
       name: "Plasma Fusion Dynamics",
       image: "/projects/bluey.png", 
       description: "Advanced computational modeling and experimental validation of plasma behavior in fusion reactors. Our research aims to optimize plasma confinement and stability to bring clean fusion energy closer to commercial viability.",
-      slug: "plasma-fusion-dynamicsx"
-    },
-    {
-      id: "materials-physics-innovation",
-      name: "Materials Physics Innovation",
-      image: "/projects/bluey.png",
-      description: "Investigating novel material properties at the atomic level to design smart materials with adaptive characteristics. Applications range from self-healing infrastructure materials to responsive environmental sensors.",
-      slug: "materials-physics-innovationx"
+      slug: "plasma-fusion-dynamics"
     }
   ];
 
