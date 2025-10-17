@@ -168,7 +168,6 @@ export default function QuantumMechanicsTradingBotPage() {
 						</div>
 					</motion.div>
 
-					{/* Implementation */}
 				{/* Implementation */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -193,8 +192,7 @@ export default function QuantumMechanicsTradingBotPage() {
 								alt="Illustrative backtest visualization"
 								className="w-full h-full object-cover"
 							/>
-							<div className="absolute bottom-2 right-3 text-xs text-white/80 bg-black/30 px-2 py-1 rounded">
-								Demo visualization (for illustration only)
+						<div className="absolute bottom-2 right-3 text-xs text-white/80 bg-black/30 px-2 py-1 rounded">
 							</div>
 						</div>
 					</div>
@@ -213,7 +211,8 @@ export default function QuantumMechanicsTradingBotPage() {
 							</ul>
 						</div>
 					</div>
-				</motion.div>					{/* Next Steps */}
+				</motion.div>
+				{/* Next Steps */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
