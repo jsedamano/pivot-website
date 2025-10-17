@@ -1,18 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function ProjectsPage() {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const projects = [
     {
       id: "linear-generator",

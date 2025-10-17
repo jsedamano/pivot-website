@@ -1,19 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function AboutPage() {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -247,8 +238,8 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* WE LOVE SECTION */}
-      <section className="container-max pt-4 pb-0 md:pt-6 md:pb-0">
+  {/* WE LOVE SECTION */}
+  <section className="container-max pt-4 pb-6 md:pt-6 md:pb-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

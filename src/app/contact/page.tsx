@@ -1,17 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
 
 export default function ContactPage() {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const contactMethods = [
     {
       icon: "📧",
