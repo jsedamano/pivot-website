@@ -58,8 +58,6 @@ export default function LinearGeneratorPage() {
 				</div>
 			</section>
 
-
-
 			{/* PROJECT STORY & INFOGRAPHIC */}
 			<section className="container-max pt-0 pb-12 md:pt-0 md:pb-16">
 				<div className="max-w-4xl mx-auto">

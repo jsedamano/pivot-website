@@ -22,11 +22,11 @@ export default function ProjectsPage() {
       slug: "linear-generator"
     },
     {
-      id: "plasma-fusion-dynamics",
-      name: "Plasma Fusion Dynamics",
-      image: "/projects/bluey.png", 
-      description: "Advanced computational modeling and experimental validation of plasma behavior in fusion reactors. Our research aims to optimize plasma confinement and stability to bring clean fusion energy closer to commercial viability.",
-      slug: "plasma-fusion-dynamics"
+      id: "qm-trading-bot",
+      name: "Quantum Mechanics Trading Bot",
+      image: "/projects/qm-trading-bot/qm-trading-bot-3.png", 
+  description: "A proof‑of‑concept trading bot that uses ideas from physics to handle market uncertainty. It ran on a paper‑trading account and placed automatic trades—not to make money, but to show how physics can power creative, real‑world finance projects.",
+      slug: "qm-trading-bot"
     }
   ];
 
