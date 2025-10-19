@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function LinearGeneratorPage() {
 	return (
@@ -135,14 +136,21 @@ export default function LinearGeneratorPage() {
 								transition={{ duration: 0.7 }}
 								className="md:col-span-2 col-span-1 flex items-center justify-center"
 							>
-								<motion.img
-									src="/projects/linear-generator/linear-generator-1.png"
-									alt="Linear Generator wearable concept"
-									className="rounded-xl shadow-lg object-cover w-full max-w-xs md:max-w-md"
+								<motion.div
+									className="relative w-full max-w-xs md:max-w-md aspect-[4/5] rounded-xl overflow-hidden shadow-lg"
 									initial={{ scale: 1.05 }}
 									animate={{ scale: [1.05, 1, 1.05] }}
 									transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-								/>
+								>
+									<Image
+										src="/projects/linear-generator/linear-generator-1.png"
+										alt="Linear Generator wearable concept"
+										fill
+										sizes="(max-width: 768px) 80vw, 400px"
+										className="object-cover"
+										priority
+									/>
+								</motion.div>
 							</motion.div>
 							<div className="md:col-span-2 col-span-1 grid gap-6">
 								{[
@@ -207,7 +215,13 @@ export default function LinearGeneratorPage() {
 									whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
 									className="relative h-48 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-lg"
 								>
-									<img src={src} alt={`Linear Generator ${i+1}`} className="w-full h-full object-cover" />
+									<Image 
+										src={src} 
+										alt={`Linear Generator ${i+1}`} 
+										fill 
+										sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" 
+										className="object-cover" 
+									/>
 								</motion.div>
 							))}
 						</div>

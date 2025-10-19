@@ -1,17 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function QuantumMechanicsTradingBotPage() {
-	const [mounted, setMounted] = useState(false);
-	const { resolvedTheme } = useTheme();
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
 
 	return (
 		<main>
@@ -179,18 +172,23 @@ export default function QuantumMechanicsTradingBotPage() {
 					<h2 className="text-3xl font-bold mb-8 text-center">Implementation</h2>
 					<div className="grid gap-8 md:grid-cols-2 items-stretch mb-8">
 						<div className="relative h-64 md:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-200 dark:from-indigo-900/30 dark:to-purple-800/50">
-							<img
+							<Image
 								src="/projects/qm-trading-bot/qm-trading-bot-1.png"
 								alt="Quantum Mechanics Trading Bot"
-								className="w-full h-full object-cover"
+								fill
+								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+								className="object-cover"
+								priority
 							/>
 						</div>
 
 						<div className="relative h-64 md:h-80 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-800">
-							<img
+							<Image
 								src="/projects/qm-trading-bot/qm-trading-bot-2.png"
 								alt="Illustrative backtest visualization"
-								className="w-full h-full object-cover"
+								fill
+								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+								className="object-cover"
 							/>
 						<div className="absolute bottom-2 right-3 text-xs text-white/80 bg-black/30 px-2 py-1 rounded">
 							</div>
@@ -205,7 +203,7 @@ export default function QuantumMechanicsTradingBotPage() {
 								applying the physics‑inspired logic, and sending orders to a paper‑trading API.
 							</p>
 							<ul className="list-disc pl-6 space-y-2">
-								<li><span className="font-medium">Education first:</span> the goal wasn't profit, it was demonstration.</li>
+								<li><span className="font-medium">Education first:</span> the goal wasn&apos;t profit, it was demonstration.</li>
 								<li><span className="font-medium">Fast iteration:</span> keep math and code lightweight to move quickly.</li>
 								<li><span className="font-medium">Clear mapping:</span> tie each physics term to an intuitive market feature.</li>
 							</ul>

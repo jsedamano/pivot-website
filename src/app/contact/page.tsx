@@ -54,7 +54,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="text-lg md:text-xl tracking-[0.25em] uppercase text-gray-500 dark:text-gray-400 mb-12"
           >
-            Let's connect and collaborate
+            Let&apos;s connect and collaborate
           </motion.p>
         </div>
       </section>
@@ -74,8 +74,8 @@ export default function ContactPage() {
               Get in Touch
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-              Whether you're interested in collaboration, have questions about our research, 
-              or want to learn more about PIVOT, we'd love to hear from you.
+              Whether you&apos;re interested in collaboration, have questions about our research, 
+              or want to learn more about PIVOT, we&apos;d love to hear from you.
             </p>
           </motion.div>
 

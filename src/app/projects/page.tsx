@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProjectsPage() {
   const projects = [
@@ -108,12 +109,15 @@ export default function ProjectsPage() {
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.6, ease: "easeOut" }}
-                      className="w-full h-full"
+                      className="w-full h-full relative"
                     >
-                      <img
+                      <Image
                         src={project.image}
                         alt={project.name}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+                        className="object-cover"
+                        priority={index === 0}
                       />
                     </motion.div>
                   </div>
@@ -160,9 +164,9 @@ export default function ProjectsPage() {
             Interested in Collaborating?
           </h3>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 max-w-3xl mx-auto">
-            We're always looking for partnerships with researchers, institutions, and organizations 
-            who share our vision of physics-driven innovation. Let's work together to push the 
-            boundaries of what's possible.
+            We&apos;re always looking for partnerships with researchers, institutions, and organizations 
+            who share our vision of physics-driven innovation. Let&apos;s work together to push the 
+            boundaries of what&apos;s possible.
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link

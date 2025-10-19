@@ -117,7 +117,7 @@ export default function ResearchPage() {
                 className="space-y-4 mb-8 text-center"
               >
                 <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                  We're working hard to bring you detailed insights into our research initiatives, 
+                  We&apos;re working hard to bring you detailed insights into our research initiatives, 
                   methodologies, and groundbreaking discoveries.
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -138,7 +138,7 @@ export default function ResearchPage() {
                   Meanwhile, check out our projects!
                 </h3>
                 <p className="text-gray-700 dark:text-white mb-6 leading-relaxed">
-                  Explore our current initiatives and see how we're applying physics-driven 
+                  Explore our current initiatives and see how we&apos;re applying physics-driven 
                   solutions to tackle challenges in energy, environment, and technology.
                 </p>
                 
@@ -217,7 +217,7 @@ export default function ResearchPage() {
             Want to collaborate on research?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-            We're always looking for passionate researchers, students, and institutions 
+            We&apos;re always looking for passionate researchers, students, and institutions 
             to collaborate with. Reach out to discuss potential partnerships!
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

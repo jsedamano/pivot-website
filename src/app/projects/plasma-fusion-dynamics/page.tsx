@@ -2,16 +2,14 @@
 
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 
 export default function PlasmaFusionDynamicsPage() {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme } = useTheme();
+  // Removed unused variables to satisfy lint warnings
+  const { } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <main>
@@ -108,7 +106,7 @@ export default function PlasmaFusionDynamicsPage() {
                 </p>
                 <p>
                   By combining theoretical plasma physics with high-performance computing and 
-                  experimental validation, we're pushing the boundaries of what's possible in 
+                  experimental validation, we&apos;re pushing the boundaries of what&apos;s possible in 
                   clean energy generation.
                 </p>
               </div>
