@@ -1,10 +1,17 @@
 "use client";
 
+
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function QuantumMechanicsTradingBotPage() {
+	const [mounted, setMounted] = useState(false);
+	const { resolvedTheme } = useTheme();
+	useEffect(() => { setMounted(true); }, []);
 
 	return (
 		<main>
@@ -43,7 +50,8 @@ export default function QuantumMechanicsTradingBotPage() {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-						className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8"
+						className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8"
+						style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
 					>
 						PIVOT uses physics to highlight real-world applications. We explore a niche idea in finance—treating stocks like quantum objects. Since both markets and quantum systems feel unpredictable, we built a proof-of-concept bot that trades on paper, not for profit, but to show the power of physics-driven thinking.
 					</motion.p>
@@ -64,13 +72,13 @@ export default function QuantumMechanicsTradingBotPage() {
 						{/* Project Details */}
 						<div>
 							<h2 className="text-3xl font-bold mb-6">Project Overview</h2>
-							<div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-								<p>
+							<div className="space-y-4 leading-relaxed">
+								<p style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}>
 									We represented NYSE stocks as quantum‑like objects and kept the math at a
 									manageable level. The goal was clarity and demonstration over complexity—bringing
 									physics and finance together in a way that’s hands‑on and testable.
 								</p>
-								<p>
+								<p style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}>
 									The outcome is a bot that can place automatic trades on a paper‑trading account
 									via API. Its purpose is educational: to show we can translate core physics ideas
 									into working software.
@@ -121,11 +129,14 @@ export default function QuantumMechanicsTradingBotPage() {
 							>
 								Ĥ = −ℏ²/(2m) · ∂²/∂r² + e · F · r · cos(ωt)
 							</motion.div>
-							<p className="mt-4 text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-								This Hamiltonian represents total energy of a particle. We kept the math simple
-								enough to be practical, then mapped each term to market features for a clear
-								demonstration.
-							</p>
+											<p
+												className="mt-4 max-w-3xl mx-auto"
+												style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#6b7280' }}
+											>
+												This Hamiltonian represents total energy of a particle. We kept the math simple
+												enough to be practical, then mapped each term to market features for a clear
+												demonstration.
+											</p>
 						</div>
 					</motion.div>
 
@@ -155,7 +166,12 @@ export default function QuantumMechanicsTradingBotPage() {
 								>
 									<div className="text-4xl mb-3">{m.icon}</div>
 									<h3 className="text-lg font-bold mb-2">{m.title}</h3>
-									<p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{m.desc}</p>
+														<p
+															className="text-sm leading-relaxed"
+															style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#6b7280' }}
+														>
+															{m.desc}
+														</p>
 								</motion.div>
 							))}
 						</div>
@@ -197,17 +213,19 @@ export default function QuantumMechanicsTradingBotPage() {
 
 					<div className="card p-8">
 						<h3 className="text-2xl font-bold mb-4">How We Built It</h3>
-						<div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-							<p>
-								We implemented the concept with a simple, modular pipeline—ingesting market data,
-								applying the physics‑inspired logic, and sending orders to a paper‑trading API.
-							</p>
-							<ul className="list-disc pl-6 space-y-2">
-								<li><span className="font-medium">Education first:</span> the goal wasn&apos;t profit, it was demonstration.</li>
-								<li><span className="font-medium">Fast iteration:</span> keep math and code lightweight to move quickly.</li>
-								<li><span className="font-medium">Clear mapping:</span> tie each physics term to an intuitive market feature.</li>
-							</ul>
-						</div>
+									<div className="space-y-4 leading-relaxed">
+										<p
+											style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+										>
+											We implemented the concept with a simple, modular pipeline—ingesting market data,
+											applying the physics‑inspired logic, and sending orders to a paper‑trading API.
+										</p>
+										<ul className="list-disc pl-6 space-y-2">
+											<li><span className="font-medium">Education first:</span> the goal wasn&apos;t profit, it was demonstration.</li>
+											<li><span className="font-medium">Fast iteration:</span> keep math and code lightweight to move quickly.</li>
+											<li><span className="font-medium">Clear mapping:</span> tie each physics term to an intuitive market feature.</li>
+										</ul>
+									</div>
 					</div>
 				</motion.div>
 				{/* Next Steps */}
@@ -219,10 +237,13 @@ export default function QuantumMechanicsTradingBotPage() {
 						className="card p-8 md:p-12 text-center bg-brand-50/80 dark:bg-gray-800/30"
 					>
 						<h2 className="text-3xl font-bold mb-6">Collaboration</h2>
-						<p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-							We love turning physics ideas into practical demos. If you’re interested in data
-							partnerships, validation, or exploring real‑time experiments, we’d love to connect.
-						</p>
+									<p
+										className="text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
+										style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+									>
+										We love turning physics ideas into practical demos. If you’re interested in data
+										partnerships, validation, or exploring real‑time experiments, we’d love to connect.
+									</p>
 						<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
 							<Link
 								href="/contact"

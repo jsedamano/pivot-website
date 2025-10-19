@@ -107,7 +107,8 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed"
+                className="text-xl md:text-2xl leading-relaxed"
+                style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
               >
                 Already composed of members from over{" "}
                 <motion.span 
@@ -124,7 +125,8 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed"
+                className="text-lg md:text-xl leading-relaxed"
+                style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
               >
                 We have a couple projects under way, so stay tuned for more in depth postings of our process.
               </motion.p>
@@ -134,7 +136,8 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed"
+                className="text-lg md:text-xl leading-relaxed"
+                style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
               >
                 If you or anyone you know is interested in learning more or joining our movement,{" "}
                 <motion.span 

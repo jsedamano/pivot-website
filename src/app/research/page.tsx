@@ -1,9 +1,16 @@
 "use client";
 
+
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function ResearchPage() {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+  useEffect(() => { setMounted(true); }, []);
+
   return (
     <main>
       {/* HERO SECTION */}
@@ -116,11 +123,17 @@ export default function ResearchPage() {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="space-y-4 mb-8 text-center"
               >
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p
+                  className="text-xl md:text-2xl leading-relaxed"
+                  style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
+                >
                   We&apos;re working hard to bring you detailed insights into our research initiatives, 
                   methodologies, and groundbreaking discoveries.
                 </p>
-                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p
+                  className="text-lg leading-relaxed"
+                  style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
+                >
                   Our research spans across multiple disciplines, combining theoretical physics 
                   with practical applications to solve real-world challenges.
                 </p>
@@ -137,7 +150,10 @@ export default function ResearchPage() {
                 <h3 className="text-xl md:text-2xl font-semibold mb-4">
                   Meanwhile, check out our projects!
                 </h3>
-                <p className="text-gray-700 dark:text-white mb-6 leading-relaxed">
+                <p
+                  className="mb-6 leading-relaxed"
+                  style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+                >
                   Explore our current initiatives and see how we&apos;re applying physics-driven 
                   solutions to tackle challenges in energy, environment, and technology.
                 </p>
@@ -195,7 +211,12 @@ export default function ResearchPage() {
                   >
                     <div className="text-3xl mb-3">{item.icon}</div>
                     <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">{item.desc}</p>
+                    <p
+                      className="text-sm"
+                      style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#6b7280' }}
+                    >
+                      {item.desc}
+                    </p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -216,7 +237,10 @@ export default function ResearchPage() {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Want to collaborate on research?
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+          <p
+            className="mb-6 leading-relaxed"
+            style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+          >
             We&apos;re always looking for passionate researchers, students, and institutions 
             to collaborate with. Reach out to discuss potential partnerships!
           </p>

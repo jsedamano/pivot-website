@@ -1,10 +1,17 @@
 "use client";
 
+
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function ProjectsPage() {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+  useEffect(() => { setMounted(true); }, []);
+
   const projects = [
     {
       id: "linear-generator",
@@ -66,7 +73,10 @@ export default function ProjectsPage() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
             Our Current Initiatives
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p
+            className="text-xl leading-relaxed"
+            style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
+          >
             These are our flagship projects where cutting-edge physics meets real-world applications. 
             Each initiative represents our commitment to translating theoretical breakthroughs into 
             practical solutions that can make a meaningful impact on society and the environment.
@@ -88,17 +98,14 @@ export default function ProjectsPage() {
             >
               <Link href={`/projects/${project.slug}`}>
                 <motion.div
-                  whileHover={{ 
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: "easeOut" } }}
                   whileTap={{ scale: 0.98 }}
-                  className="card p-0 overflow-hidden cursor-pointer group hover:shadow-xl transition-all duration-300"
+                  className="card p-0 overflow-hidden cursor-pointer group transition-all duration-300"
                 >
                   {/* Project Header */}
                   <div className="p-8 md:p-12 pb-6 md:pb-8 flex items-center">
                     <motion.h3
-                      className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-brand-600 dark:text-brand-400 group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors duration-300"
+                      className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-brand-600 dark:text-brand-400 transition-colors duration-300"
                     >
                       {project.name}
                     </motion.h3>
@@ -107,8 +114,6 @@ export default function ProjectsPage() {
                   {/* Project Image */}
                   <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden bg-gray-100 dark:bg-gray-800">
                     <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
                       className="w-full h-full relative"
                     >
                       <Image
@@ -125,20 +130,21 @@ export default function ProjectsPage() {
                   {/* Project Description */}
                   <div className="p-8 md:p-12 pt-6 md:pt-8">
                     <motion.p
-                      className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300"
+                      className="text-lg md:text-xl leading-relaxed transition-colors duration-300"
+                      style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
                     >
                       {project.description}
                     </motion.p>
                     
                     {/* Read More Indicator */}
                     <motion.div
-                      className="mt-6 flex items-center gap-2 text-brand-600 dark:text-brand-400 font-medium group-hover:text-brand-700 dark:group-hover:text-brand-300 transition-colors duration-300"
+                      className="mt-6 flex items-center gap-2 text-brand-600 dark:text-brand-400 font-medium transition-colors duration-300"
                     >
                       <span>Learn More</span>
                       <motion.span
                         animate={{ x: [0, 4, 0] }}
                         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                        className="group-hover:translate-x-1 transition-transform duration-300"
+                        className="transition-transform duration-300"
                       >
                         →
                       </motion.span>
@@ -163,7 +169,10 @@ export default function ProjectsPage() {
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Interested in Collaborating?
           </h3>
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 max-w-3xl mx-auto">
+          <p
+            className="text-lg leading-relaxed mb-6 max-w-3xl mx-auto"
+            style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+          >
             We&apos;re always looking for partnerships with researchers, institutions, and organizations 
             who share our vision of physics-driven innovation. Let&apos;s work together to push the 
             boundaries of what&apos;s possible.

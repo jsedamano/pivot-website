@@ -1,10 +1,18 @@
 "use client";
 
+
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+
 export default function LinearGeneratorPage() {
+	const [mounted, setMounted] = useState(false);
+	const { resolvedTheme } = useTheme();
+	useEffect(() => { setMounted(true); }, []);
+
 	return (
 		<main>
 			{/* HERO SECTION */}
@@ -38,14 +46,15 @@ export default function LinearGeneratorPage() {
 						>
 							Wearable Power Generation
 						</motion.h1>
-						<motion.p
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-							className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8"
-						>
-							Humans expend millions of joules of energy every day in regular activities. Did you know an iPhone 17 Pro Max battery only stores about 70kJ—less than 5% of what a human uses daily? PIVOT is on a mission to save you money, promote green energy, and reduce the load on the power grid by harvesting the energy you already expend.
-						</motion.p>
+									<motion.p
+										initial={{ opacity: 0, y: 20 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+										className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8"
+										style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
+									>
+										Humans use millions of joules daily, while an iPhone 17 Pro Max battery holds just ~70 kJ (under 5% of daily human energy). PIVOT aims to save money, support green energy, and ease grid demand by capturing the energy people naturally expend.
+									</motion.p>
 					</div>
 				</div>
 			</section>
@@ -61,22 +70,24 @@ export default function LinearGeneratorPage() {
 						className="mb-16"
 					>
 						<h2 className="text-3xl font-bold mb-6">The PIVOT Approach</h2>
-						<div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-							<motion.p
-								initial={{ opacity: 0, x: -20 }}
-								whileInView={{ opacity: 1, x: 0 }}
-								transition={{ duration: 0.7, delay: 0.2 }}
-							>
-								Our method? Personal generators. By applying Faraday’s law—a magnet moving through a copper coil—we can decrease your reliance on home electricity. Imagine charging your phone while walking around campus, or powering emergency devices on a hike, all from your own movement.
-							</motion.p>
-							<motion.p
-								initial={{ opacity: 0, x: 20 }}
-								whileInView={{ opacity: 1, x: 0 }}
-								transition={{ duration: 0.7, delay: 0.4 }}
-							>
-								PIVOT’s 3D “linear” generator is designed to go anywhere you go. The concept is simple, but our team’s ingenuity and unique mindsets are creating a compact, efficient product that can change how you power your life.
-							</motion.p>
-						</div>
+									<div className="space-y-4 leading-relaxed text-lg">
+										<motion.p
+											initial={{ opacity: 0, x: -20 }}
+											whileInView={{ opacity: 1, x: 0 }}
+											transition={{ duration: 0.7, delay: 0.2 }}
+											style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+										>
+											Our method? Personal generators. By applying Faraday’s law—a magnet moving through a copper coil—we can decrease your reliance on home electricity. Imagine charging your phone while walking around campus, or powering emergency devices on a hike, all from your own movement.
+										</motion.p>
+										<motion.p
+											initial={{ opacity: 0, x: 20 }}
+											whileInView={{ opacity: 1, x: 0 }}
+											transition={{ duration: 0.7, delay: 0.4 }}
+											style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+										>
+											PIVOT’s 3D “linear” generator is designed to go anywhere you go. The concept is simple, but our team’s ingenuity and unique mindsets are creating a compact, efficient product that can change how you power your life.
+										</motion.p>
+									</div>
 					</motion.div>
 
 					{/* Infographic / Comparison */}
@@ -152,41 +163,44 @@ export default function LinearGeneratorPage() {
 									/>
 								</motion.div>
 							</motion.div>
-							<div className="md:col-span-2 col-span-1 grid gap-6">
-								{[
-									{
-										icon: "🧲",
-										title: "Faraday’s Law",
-										description: "A magnet moves through a copper coil, generating electricity from your motion."
-									},
-									{
-										icon: "🎒",
-										title: "Wearable Design",
-										description: "Compact, 3D linear generator fits in your bag, on your belt, or in your gear."
-									},
-									{
-										icon: "🔋",
-										title: "Charge On the Go",
-										description: "Power your phone or emergency devices while you walk, hike, or commute."
-									}
-								].map((area, index) => (
-									<motion.div
-										key={area.title}
-										initial={{ opacity: 0, y: 20 }}
-										whileInView={{ opacity: 1, y: 0 }}
-										viewport={{ once: true, margin: "-100px" }}
-										transition={{ duration: 0.6, delay: 0.1 * index }}
-										whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-										className="card p-6 text-center"
-									>
-										<div className="text-4xl mb-4">{area.icon}</div>
-										<h3 className="text-xl font-bold mb-3">{area.title}</h3>
-										<p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-											{area.description}
-										</p>
-									</motion.div>
-								))}
-							</div>
+								<div className="md:col-span-2 col-span-1 grid gap-6">
+									{[
+										{
+											icon: "🧲",
+											title: "Faraday’s Law",
+											description: "A magnet moves through a copper coil, generating electricity from your motion."
+										},
+										{
+											icon: "🎒",
+											title: "Wearable Design",
+											description: "Compact, 3D linear generator fits in your bag, on your belt, or in your gear."
+										},
+										{
+											icon: "🔋",
+											title: "Charge On the Go",
+											description: "Power your phone or emergency devices while you walk, hike, or commute."
+										}
+									].map((area, index) => (
+										<motion.div
+											key={area.title}
+											initial={{ opacity: 0, y: 20 }}
+											whileInView={{ opacity: 1, y: 0 }}
+											viewport={{ once: true, margin: "-100px" }}
+											transition={{ duration: 0.6, delay: 0.1 * index }}
+											whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+											className="card p-6 text-center"
+										>
+											<div className="text-4xl mb-4">{area.icon}</div>
+											<h3 className="text-xl font-bold mb-3">{area.title}</h3>
+											<p
+												className="text-sm leading-relaxed"
+												style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#6b7280' }}
+											>
+												{area.description}
+											</p>
+										</motion.div>
+									))}
+								</div>
 						</div>
 					</motion.div>
 
@@ -236,9 +250,12 @@ export default function LinearGeneratorPage() {
 						className="card p-8 md:p-12 text-center bg-brand-50/80 dark:bg-gray-800/30"
 					>
 						<h2 className="text-3xl font-bold mb-6">Ready to Power Up?</h2>
-						<p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-							Join us in revolutionizing personal energy. Whether you’re a student, hiker, or just want to save on your electric bill, PIVOT’s linear generator is designed for you. Let’s build a greener, more independent future—together.
-						</p>
+									<p
+										className="text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
+										style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+									>
+										Join us in revolutionizing personal energy. Whether you’re a student, hiker, or just want to save on your electric bill, PIVOT’s linear generator is designed for you. Let’s build a greener, more independent future—together.
+									</p>
 						<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
 							<Link
 								href="/contact"

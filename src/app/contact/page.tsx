@@ -1,8 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
 
+import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 export default function ContactPage() {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+  useEffect(() => { setMounted(true); }, []);
+
   const contactMethods = [
     {
       icon: "📧",
@@ -73,7 +79,10 @@ export default function ContactPage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
               Get in Touch
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <p
+              className="text-xl leading-relaxed max-w-3xl mx-auto"
+              style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
+            >
               Whether you&apos;re interested in collaboration, have questions about our research, 
               or want to learn more about PIVOT, we&apos;d love to hear from you.
             </p>
@@ -117,7 +126,10 @@ export default function ContactPage() {
                   {method.value}
                 </p>
                 
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#6b7280' }}
+                >
                   {method.description}
                 </p>
               </motion.a>
@@ -135,7 +147,10 @@ export default function ContactPage() {
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Make an Impact?
             </h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            <p
+              className="text-lg leading-relaxed mb-6"
+              style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+            >
               Join us in our mission to bridge the gap between cutting-edge physics research 
               and real-world applications. Together, we can create solutions that matter.
             </p>

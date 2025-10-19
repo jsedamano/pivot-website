@@ -1,10 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function AboutPage() {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -69,18 +78,18 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
               About PIVOT
             </h2>
-            <div className="text-gray-600 dark:text-gray-300 leading-relaxed space-y-4">
-              <p>
+            <div className="leading-relaxed space-y-4">
+              <p style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}>
                 PIVOT (Physics Infused Vision for Onward Thinking) is a student-led organization at Virginia Tech 
                 that brings together minds from diverse academic backgrounds to tackle real-world challenges through 
                 physics-driven innovation.
               </p>
-              <p>
+              <p style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}>
                 Our interdisciplinary approach combines theoretical physics with practical engineering, creating 
                 solutions that are both scientifically sound and practically viable. We believe that the principles 
                 of physics can unlock new possibilities in every field.
               </p>
-              <p>
+              <p style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}>
                 Founded by passionate students who wanted to bridge the gap between academic learning and real-world 
                 application, PIVOT has grown into a thriving community of innovators, researchers, and problem-solvers.
               </p>
@@ -154,8 +163,8 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="card p-8 md:p-12"
           >
-            <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed space-y-6">
-              <p>
+            <div className="text-xl md:text-2xl leading-relaxed space-y-6">
+              <p style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}>
                 To empower students from diverse academic backgrounds to develop and implement projects 
                 that use physics-based reasoning to tackle practical problems in society, technology, and
                 the environment.
@@ -225,7 +234,7 @@ export default function AboutPage() {
               >
                 <div className="text-4xl mb-4">{option.icon}</div>
                 <h3 className="font-semibold text-lg mb-3">{option.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{option.desc}</p>
+                <p className="mb-6 leading-relaxed" style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}>{option.desc}</p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 transition"
@@ -293,7 +302,7 @@ export default function AboutPage() {
               >
                 <div className="text-3xl mb-3">{item.emoji}</div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{item.desc}</p>
+                <p className="text-sm" style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
