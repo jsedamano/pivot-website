@@ -77,7 +77,7 @@ export default function LinearGeneratorPage() {
 											transition={{ duration: 0.7, delay: 0.2 }}
 											style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
 										>
-											Our method? Personal generators. By applying Faraday’s law—a magnet moving through a copper coil—we can decrease your reliance on home electricity. Imagine charging your phone while walking around campus, or powering emergency devices on a hike, all from your own movement.
+											Our method? Personal generators. By applying Faraday’s law, a magnet moving through a copper coil, we can decrease your reliance on home electricity. Imagine charging your phone while walking around campus, or powering emergency devices on a hike, all from your own movement.
 										</motion.p>
 										<motion.p
 											initial={{ opacity: 0, x: 20 }}
@@ -254,7 +254,7 @@ export default function LinearGeneratorPage() {
 										className="text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
 										style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
 									>
-										Join us in revolutionizing personal energy. Whether you’re a student, hiker, or just want to save on your electric bill, PIVOT’s linear generator is designed for you. Let’s build a greener, more independent future—together.
+										Join us in revolutionizing personal energy. Whether you’re a student, hiker, or just want to save on your electric bill, PIVOT’s linear generator is designed for you. Let’s build a greener, more independent future together.
 									</p>
 						<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
 							<Link

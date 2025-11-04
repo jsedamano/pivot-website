@@ -53,7 +53,7 @@ export default function QuantumMechanicsTradingBotPage() {
 						className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8"
 						style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
 					>
-						PIVOT uses physics to highlight real-world applications. We explore a niche idea in finance—treating stocks like quantum objects. Since both markets and quantum systems feel unpredictable, we built a proof-of-concept bot that trades on paper, not for profit, but to show the power of physics-driven thinking.
+						PIVOT uses physics to highlight real-world applications. We explore a niche idea in finance-treating stocks like quantum objects. Since both markets and quantum systems feel unpredictable, we built a proof-of-concept bot that trades on paper, not for profit, but to show the power of physics-driven thinking.
 					</motion.p>
 					</div>
 				</div>
@@ -75,7 +75,7 @@ export default function QuantumMechanicsTradingBotPage() {
 							<div className="space-y-4 leading-relaxed">
 								<p style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}>
 									We represented NYSE stocks as quantum‑like objects and kept the math at a
-									manageable level. The goal was clarity and demonstration over complexity—bringing
+									manageable level. The goal was clarity and demonstration over complexity, bringing
 									physics and finance together in a way that’s hands‑on and testable.
 								</p>
 								<p style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}>
@@ -151,8 +151,8 @@ export default function QuantumMechanicsTradingBotPage() {
 						<h2 className="text-3xl font-bold mb-8 text-center">Mapping Physics to Markets</h2>
 						<div className="grid gap-6 md:grid-cols-3">
 							{[ 
-								{ icon: "⚖️", title: "m → Market Cap", desc: "Mass corresponds to market capitalization—heavier stocks move differently." },
-								{ icon: "📦", title: "F → Volume", desc: "Field strength maps to trading volume—the push from market activity." },
+								{ icon: "⚖️", title: "m → Market Cap", desc: "Mass corresponds to market capitalization. Heavier stocks move differently." },
+								{ icon: "📦", title: "F → Volume", desc: "Field strength maps to trading volume. The push from market activity." },
 								{ icon: "⏱️", title: "ω → Volume Cycle", desc: "Frequency reflects cyclical volume patterns observed in some assets." },
 							].map((m, i) => (
 								<motion.div
@@ -217,7 +217,7 @@ export default function QuantumMechanicsTradingBotPage() {
 										<p
 											style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
 										>
-											We implemented the concept with a simple, modular pipeline—ingesting market data,
+											We implemented the concept with a simple, modular pipeline-ingesting market data,
 											applying the physics‑inspired logic, and sending orders to a paper‑trading API.
 										</p>
 										<ul className="list-disc pl-6 space-y-2">

@@ -17,14 +17,14 @@ export default function ProjectsPage() {
       id: "linear-generator",
       name: "Linear Generator",
       image: "/projects/linear-generator/linear-generator-1.png",
-      description: "Wearable power you make. PIVOT’s 3D linear generator harvests everyday motion via Faraday’s law—charge on the go, power safety gear, cut costs, and lighten the grid load.",
+      description: "Wearable power you make. PIVOT’s 3D linear generator harvests everyday motion via Faraday’s law. Charge on the go, power safety gear, cut costs, and lighten the grid load.",
       slug: "linear-generator"
     },
     {
       id: "qm-trading-bot",
       name: "Quantum Mechanics Trading Bot",
       image: "/projects/qm-trading-bot/qm-trading-bot-3.png", 
-  description: "A proof‑of‑concept trading bot that uses ideas from physics to handle market uncertainty. It ran on a paper‑trading account and placed automatic trades—not to make money, but to show how physics can power creative, real‑world finance projects.",
+  description: "A proof‑of‑concept trading bot that uses ideas from physics to handle market uncertainty. It ran on a paper‑trading account and placed automatic trades, not to make money, but to show how physics can power creative, real‑world finance projects.",
       slug: "qm-trading-bot"
     }
   ];

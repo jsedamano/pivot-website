@@ -70,16 +70,37 @@ export default function HomePage() {
           >
             <Link
               href="/projects"
-              className="rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-600 hover:text-white dark:hover:text-white px-6 py-3 transition font-medium"
+              className="rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 px-6 py-3 transition font-medium transform-gpu transition-transform duration-150 ease-out hover:scale-105"
             >
               Explore Projects
             </Link>
             <Link
               href="/about"
-              className="rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-600 hover:text-white dark:hover:text-white px-6 py-3 transition font-medium"
+              className="rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 px-6 py-3 transition font-medium transform-gpu transition-transform duration-150 ease-out hover:scale-105"
             >
               About Us
             </Link>
+          </motion.div>
+
+          {/* GobblerConnect Animated Link */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.95, ease: "easeOut" }}
+            className="mt-6"
+          >
+            <motion.a
+              href="https://gobblerconnect.vt.edu/organization/pivot"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileTap={{ scale: 0.98 }}
+              initial={{ y: 8, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.95, ease: "easeOut" }}
+              className="rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 px-6 py-3 transition font-medium inline-flex items-center transform-gpu transition-transform duration-150 ease-out hover:scale-105"
+            >
+              <span className="text-sm font-medium">GobblerConnect</span>
+            </motion.a>
           </motion.div>
         </div>
       </section>
@@ -146,7 +167,7 @@ export default function HomePage() {
                 >
                   please reach out
                 </motion.span>
-                —we would love to have you!
+                , we would love to have you!
               </motion.p>
             </motion.div>
 
