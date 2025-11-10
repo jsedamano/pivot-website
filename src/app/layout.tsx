@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   description:
     "Physics Infused Vision for Onward Thinking — student-led org at Virginia Tech.",
   metadataBase: new URL("https://pivot.example.org"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/web-app-manifest-192x192.png", type: "image/png", sizes: "192x192" }
+    ],
+    shortcut: ["/favicon.ico"]
+  },
+  manifest: "/manifest.json",
   openGraph: {
     title: "PIVOT @ VT",
     description:
