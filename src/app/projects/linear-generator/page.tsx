@@ -8,6 +8,98 @@ import Link from "next/link";
 import Image from "next/image";
 
 
+function ImageGallery() {
+	const images = Array.from({ length: 9 }, (_, i) => `/projects/linear-generator/linear-generator-${i + 1}.png`);
+	const [open, setOpen] = useState(false);
+	const [index, setIndex] = useState(0);
+
+	useEffect(() => {
+		if (!open) return;
+		function onKey(e: KeyboardEvent) {
+			if (e.key === "Escape") setOpen(false);
+			if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + images.length) % images.length);
+			if (e.key === "ArrowRight") setIndex((i) => (i + 1) % images.length);
+		}
+		document.addEventListener("keydown", onKey);
+		return () => document.removeEventListener("keydown", onKey);
+	}, [open]);
+
+	return (
+		<div>
+			<div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+				{images.map((src, i) => (
+					<motion.button
+						key={src}
+						onClick={() => { setIndex(i); setOpen(true); }}
+						initial={{ opacity: 0, y: 14 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, margin: "-100px" }}
+						transition={{ duration: 0.45 + 0.05 * i }}
+						whileHover={{ scale: 1.03, transition: { duration: 0.18 } }}
+						className="relative h-48 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-lg p-0 border-0"
+					>
+						<Image
+							src={src}
+							alt={`Linear Generator ${i + 1}`}
+							fill
+							sizes="(max-width: 768px) 80vw, (max-width: 1024px) 45vw, 25vw"
+							className="object-cover"
+						/>
+					</motion.button>
+				))}
+			</div>
+			{open && (
+				<motion.div
+					className="fixed inset-0 z-50 flex items-center justify-center p-6"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+				>
+					<div
+						className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+						onClick={() => setOpen(false)}
+					/>
+					<motion.div
+						initial={{ y: 20, scale: 0.98 }}
+						animate={{ y: 0, scale: 1 }}
+						transition={{ duration: 0.28 }}
+						className="relative z-10 w-full max-w-4xl rounded-xl overflow-hidden"
+					>
+						<div className="relative bg-black/90 aspect-[16/10]">
+							<Image
+								src={images[index]}
+								alt={`Linear Generator large ${index + 1}`}
+								fill
+								sizes="(max-width: 1024px) 90vw, 1200px"
+								className="object-contain"
+								priority
+							/>
+						</div>
+						<button
+							aria-label="Previous"
+							onClick={() => setIndex((i) => (i - 1 + images.length) % images.length)}
+							className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 dark:bg-gray-900/70 p-2 shadow"
+						> ‹
+						</button>
+						<button
+							aria-label="Next"
+							onClick={() => setIndex((i) => (i + 1) % images.length)}
+							className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 dark:bg-gray-900/70 p-2 shadow"
+						> ›
+						</button>
+						<button
+							aria-label="Close"
+							onClick={() => setOpen(false)}
+							className="absolute right-4 top-4 rounded-full bg-white/90 dark:bg-gray-900/70 p-2 shadow"
+						> ✕
+						</button>
+					</motion.div>
+				</motion.div>
+			)}
+		</div>
+	);
+}
+
 export default function LinearGeneratorPage() {
 	const [mounted, setMounted] = useState(false);
 	const { resolvedTheme } = useTheme();
@@ -29,12 +121,12 @@ export default function LinearGeneratorPage() {
 						transition={{ duration: 0.6 }}
 						className="mb-8"
 					>
-						<Link
-							href="/projects"
-							className="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors font-medium"
-						>
-							← Back to Projects
-						</Link>
+					<Link
+						href="/projects"
+						className="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors font-medium"
+					>
+						← Back to Projects
+					</Link>
 					</motion.div>
 					{/* Header */}
 					<div className="text-center">
@@ -46,15 +138,15 @@ export default function LinearGeneratorPage() {
 						>
 							Wearable Power Generation
 						</motion.h1>
-									<motion.p
-										initial={{ opacity: 0, y: 20 }}
-										animate={{ opacity: 1, y: 0 }}
-										transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-										className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8"
-										style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
-									>
-										Humans use millions of joules daily, while an iPhone 17 Pro Max battery holds just ~70 kJ (under 5% of daily human energy). PIVOT aims to save money, support green energy, and ease grid demand by capturing the energy people naturally expend.
-									</motion.p>
+							<motion.p
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+								className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8"
+								style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}
+							>
+								Humans use millions of joules daily, while an iPhone 17 Pro Max battery holds just ~70 kJ (under 5% of daily human energy). PIVOT aims to save money, support green energy, and ease grid demand by capturing the energy people naturally expend.
+							</motion.p>
 					</div>
 				</div>
 			</section>
@@ -70,24 +162,24 @@ export default function LinearGeneratorPage() {
 						className="mb-16"
 					>
 						<h2 className="text-3xl font-bold mb-6">The PIVOT Approach</h2>
-									<div className="space-y-4 leading-relaxed text-lg">
-										<motion.p
-											initial={{ opacity: 0, x: -20 }}
-											whileInView={{ opacity: 1, x: 0 }}
-											transition={{ duration: 0.7, delay: 0.2 }}
-											style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
-										>
-											Our method? Personal generators. By applying Faraday’s law, a magnet moving through a copper coil, we can decrease your reliance on home electricity. Imagine charging your phone while walking around campus, or powering emergency devices on a hike, all from your own movement.
-										</motion.p>
-										<motion.p
-											initial={{ opacity: 0, x: 20 }}
-											whileInView={{ opacity: 1, x: 0 }}
-											transition={{ duration: 0.7, delay: 0.4 }}
-											style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
-										>
-											PIVOT’s 3D “linear” generator is designed to go anywhere you go. The concept is simple, but our team’s ingenuity and unique mindsets are creating a compact, efficient product that can change how you power your life.
-										</motion.p>
-									</div>
+							<div className="space-y-4 leading-relaxed text-lg">
+								<motion.p
+									initial={{ opacity: 0, x: -20 }}
+									whileInView={{ opacity: 1, x: 0 }}
+									transition={{ duration: 0.7, delay: 0.2 }}
+									style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+								>
+									Our method? Personal generators. By applying Faraday’s law, a magnet moving through a copper coil, we can decrease your reliance on home electricity. Imagine charging your phone while walking around campus, or powering emergency devices on a hike, all from your own movement.
+								</motion.p>
+								<motion.p
+									initial={{ opacity: 0, x: 20 }}
+									whileInView={{ opacity: 1, x: 0 }}
+									transition={{ duration: 0.7, delay: 0.4 }}
+									style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+								>
+									PIVOT’s 3D “linear” generator is designed to go anywhere you go. The concept is simple, but our team’s ingenuity and unique mindsets are creating a compact, efficient product that can change how you power your life.
+								</motion.p>
+							</div>
 					</motion.div>
 
 					{/* Infographic / Comparison */}
@@ -204,7 +296,7 @@ export default function LinearGeneratorPage() {
 						</div>
 					</motion.div>
 
-					{/* Image gallery with all 4 images */}
+					{/* Image gallery (expanded to 9 images) with interactive modal */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
@@ -212,33 +304,11 @@ export default function LinearGeneratorPage() {
 						transition={{ duration: 0.8 }}
 						className="mb-16"
 					>
-						<h2 className="text-3xl font-bold mb-8 text-center">Prototype Gallery</h2>
-						<div className="grid gap-6 md:grid-cols-4">
-							{[
-								"/projects/linear-generator/linear-generator-1.png",
-								"/projects/linear-generator/linear-generator-2.png",
-								"/projects/linear-generator/linear-generator-3.png",
-								"/projects/linear-generator/linear-generator-4.png",
-							].map((src, i) => (
-								<motion.div
-									key={src}
-									initial={{ opacity: 0, y: 20 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true, margin: "-100px" }}
-									transition={{ duration: 0.5 + 0.1 * i }}
-									whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
-									className="relative h-48 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-lg"
-								>
-									<Image 
-										src={src} 
-										alt={`Linear Generator ${i+1}`} 
-										fill 
-										sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" 
-										className="object-cover" 
-									/>
-								</motion.div>
-							))}
-						</div>
+						<h2 className="text-3xl font-bold mb-8 text-center">Project Gallery</h2>
+
+						{/* image sources */}
+						{/* Local array so it's easy to update images */}
+						<ImageGallery />
 					</motion.div>
 
 					{/* Call to Action */}
@@ -250,12 +320,12 @@ export default function LinearGeneratorPage() {
 						className="card p-8 md:p-12 text-center bg-brand-50/80 dark:bg-gray-800/30"
 					>
 						<h2 className="text-3xl font-bold mb-6">Ready to Power Up?</h2>
-									<p
-										className="text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
-										style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
-									>
-										Join us in revolutionizing personal energy. Whether you’re a student, hiker, or just want to save on your electric bill, PIVOT’s linear generator is designed for you. Let’s build a greener, more independent future together.
-									</p>
+							<p
+								className="text-lg leading-relaxed mb-8 max-w-2xl mx-auto"
+								style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#374151' }}
+							>
+								Join us in revolutionizing personal energy. Whether you’re a student, hiker, or just want to save on your electric bill, PIVOT’s linear generator is designed for you. Let’s build a greener, more independent future together.
+							</p>
 						<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
 							<Link
 								href="/contact"
@@ -265,8 +335,7 @@ export default function LinearGeneratorPage() {
 								<motion.span
 									animate={{ x: [0, 4, 0] }}
 									transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-								>
-									→
+								> →
 								</motion.span>
 							</Link>
 						</motion.div>
@@ -276,4 +345,3 @@ export default function LinearGeneratorPage() {
 		</main>
 	);
 }
-
