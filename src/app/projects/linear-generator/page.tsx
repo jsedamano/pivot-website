@@ -22,7 +22,7 @@ function ImageGallery() {
 		}
 		document.addEventListener("keydown", onKey);
 		return () => document.removeEventListener("keydown", onKey);
-	}, [open]);
+	}, [open, images.length]);
 
 	return (
 		<div>
@@ -239,21 +239,16 @@ export default function LinearGeneratorPage() {
 								transition={{ duration: 0.7 }}
 								className="md:col-span-2 col-span-1 flex items-center justify-center"
 							>
-								<motion.div
-									className="relative w-full max-w-xs md:max-w-md aspect-[4/5] rounded-xl overflow-hidden shadow-lg"
-									initial={{ scale: 1.05 }}
-									animate={{ scale: [1.05, 1, 1.05] }}
-									transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-								>
+								<div className="relative w-full max-w-xs md:max-w-md aspect-[4/5] rounded-xl overflow-hidden shadow-lg">
 									<Image
 										src="/projects/linear-generator/linear-generator-1.png"
 										alt="Linear Generator wearable concept"
 										fill
 										sizes="(max-width: 768px) 80vw, 400px"
-										className="object-cover"
+										className="object-contain"
 										priority
 									/>
-								</motion.div>
+								</div>
 							</motion.div>
 								<div className="md:col-span-2 col-span-1 grid gap-6">
 									{[
