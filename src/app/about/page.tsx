@@ -188,6 +188,73 @@ export default function AboutPage() {
           </motion.div>
         </motion.div>
       </section>
+      {/* YouTube Section */}
+      <section className="container-max pt-6 pb-10 md:pt-8 md:pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Follow our YouTube Channel!</h2>
+          <motion.a
+            href="https://www.youtube.com/@PIVOTatVT"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.18 }}
+            className="block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all mx-auto max-w-2xl"
+          >
+            <motion.div className="card p-0 flex flex-col md:flex-row items-stretch overflow-hidden">
+              <div className="relative w-full md:w-1/3 h-48 md:h-40 flex-shrink-0">
+                <Image
+                  src="/projects/linear-generator/linear-generator-7.png"
+                  alt="Linear Generator preview"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 33vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="p-5 md:p-6 w-full md:w-2/3 text-left flex flex-col justify-center gap-2">
+                <div className="flex items-center gap-4">
+                  <motion.div className="w-12 h-12 flex items-center justify-center rounded-full bg-red-600 text-white shadow" animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
+                    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                      <path d="M18.4 1.6C18.1 1.2 17.7 0.9 17.2 0.7 15.6 0 10 0 10 0S4.4 0 2.8 0.7C2.3 0.9 1.9 1.2 1.6 1.6 0.9 2.8 0.9 7 0.9 7S0.9 11.2 1.6 12.4C1.9 12.8 2.3 13.1 2.8 13.3 4.4 14 10 14 10 14s5.6 0 7.2-0.7c0.5-0.2 0.9-0.5 1.2-0.9 0.7-1.2 0.7-5.4 0.7-5.4s0-4.2-0.7-5.4z" fill="white"/>
+                      <path d="M7.5 9.4V4.6l4.9 2.4-4.9 2.4z" fill="#FF0000"/>
+                    </svg>
+                  </motion.div>
+                  <div>
+                    <div
+                      className="font-semibold text-lg"
+                      style={{
+                        color: mounted ? (resolvedTheme === 'dark' ? '#ffffff' : 'rgb(var(--fg))') : undefined,
+                      }}
+                    >
+                      PIVOT at VT
+                    </div>
+                    <div
+                      className="text-sm text-gray-600 dark:text-gray-400"
+                      style={{
+                        color: mounted ? (resolvedTheme === 'dark' ? '#ffffff' : undefined) : undefined,
+                      }}
+                    >
+                      Subscribe for demos, builds, and updates
+                    </div>
+                  </div>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed" style={{ color: mounted && resolvedTheme === 'dark' ? '#d1d5db' : '#4b5563' }}>
+                  Watch our latest project demos, build walkthroughs, and behind-the-scenes updates from the PIVOT team.
+                </p>
+              </div>
+            </motion.div>
+          </motion.a>
+        </motion.div>
+      </section>
 
       {/* GET INVOLVED SECTION */}
       <section className="container-max pt-6 pb-8 md:pt-8 md:pb-10">
@@ -247,8 +314,8 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-  {/* WE LOVE SECTION */}
-  <section className="container-max pt-4 pb-6 md:pt-6 md:pb-8">
+      {/* WE LOVE SECTION */}
+      <section className="container-max pt-4 pb-6 md:pt-6 md:pb-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
