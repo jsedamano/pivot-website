@@ -145,7 +145,7 @@ export default function ContactPage() {
             className="card p-8 md:p-12 text-center mt-12 bg-brand-50/80 dark:bg-gray-800/30"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Make an Impact?
+              Applications are now open!
             </h3>
             <p
               className="text-lg leading-relaxed mb-6"
@@ -160,10 +160,10 @@ export default function ContactPage() {
               className="inline-block"
             >
               <a
-                href="mailto:connect@vtpivot.org"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdl6bHUjqDAY8QrqkEjWrIy6euDNu5ba5RuUGLgANXTr6Cdzg/viewform"
                 className="inline-flex items-center gap-2 rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-600 hover:text-white dark:hover:text-white px-6 py-3 transition font-medium"
               >
-                Start the Conversation
+                Apply Here
                 <motion.span
                   animate={{ x: [0, 4, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
